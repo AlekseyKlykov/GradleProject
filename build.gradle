@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id("com.gradleup.shadow") version "9.0.0-beta4"
+}
+
+group = 'hw01_gradle'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+jar {
+    manifest {
+        attributes(
+
+                'Main-Class': 'hw01_gradle.HelloGradle'
+        )
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'com.google.guava', name: 'guava', version: '33.4.0-jre'
+}
+
+test {
+    useJUnitPlatform()
+}
